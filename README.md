@@ -38,31 +38,6 @@ To run those samples, you need your own Forge API credentials:
 
 Below are instructions to setup and run locally each boiler project, they may vary based on which project you want to run.
 
-## Project #1 - viewer-offline
-
-You can simply open <b>viewer-offline.html</b> in a browser. This project will load the local model from <b>/v8</b> directoryand  does not require you to run any server on the machine,
-although you may want to serve the .html page to get around security restrictions imposed by some browsers (such as Chrome) when reading local files.
-
- * In order to do that install a local http server on your machine, you can use the following:
-
-    > sudo npm install -g http-server
-
- * Navigate to <b>"/1 - viewer-offline"</b> directory and start the server:
-
-    > http-server
-
- * Note the local address output by the server (ex: <b>http://127.0.0.1:8080</b>) and type in your browser: <b>http://127.0.0.1:8080/viewer-offline.html</b>
-
- * This project does not require any internet connection or Forge API credentials and can be used for testing the viewer API locally
-
- * You can also run that sample the following links, which in that case requires an internet connection:
-
-    * [Engine](https://autodesk-forge.github.io/forge-boilers.nodejs/1%20-%20viewer-offline/viewer-offline.html)
-    * [Copter](https://autodesk-forge.github.io/forge-boilers.nodejs/1%20-%20viewer-offline/viewer-offline.html?path=./copter/0.svf)
-
-### Thumbnail
-![thumbnail](resources/img/Project1.png)
-
 ## Project #2 - viewer-barebone
 
 Samples in this project do not require you to implement a server, but they rely on hardcoded token and URN in the JavaScript code, so they are for testing purpose only.
