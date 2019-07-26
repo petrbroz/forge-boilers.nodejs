@@ -3,6 +3,7 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+.idea
 
 6 - viewer+server+data-mng+derivatives/push-to-prod.sh
 6 - viewer+server+data-mng+derivatives/node_modules
@@ -17,8 +18,3 @@ Thumbs.db
 4 - viewer+server+oss/node_modules
 4 - viewer+server+oss/TMP
 4 - viewer+server+oss/dist
-
-3 - viewer+server/node_modules
-3 - viewer+server/dist
-
-.idea

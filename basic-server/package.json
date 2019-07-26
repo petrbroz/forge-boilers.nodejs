@@ -1,0 +1,21 @@
+{
+  "name": "forge-boilerplate-basic-server",
+  "version": "1.0.0",
+  "description": "Boilerplate for Node.js server application with access to Autodesk Forge services.",
+  "keywords": [
+    "autodesk",
+    "forge",
+    "nodejs",
+    "express"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Petr Broz <petr.broz@autodesk.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forge-apis": "^0.4.5"
+  }
+}

@@ -61,7 +61,19 @@ cd viewer-barebone
 http-server
 ```
 
-## Project #3 - viewer+server
+### basic-server
+
+This sample implements a simple [express](https://expressjs.com) server providing access tokens and model URNs
+via endpoints. To get started:
+
+- Navigate to the _basic-server_ folder: `cd basic-server`
+- Install dependencies: `npm install`
+- Set the following env. variables (`set <name>=<value>` on Windows, and `export <name>=<value>` on macOS and Linux):
+  - `FORGE_CLIENT_ID` - your Forge application's client ID
+  - `FORGE_CLIENT_SECRET` - your Forge application's client secret
+  - `FORGE_MODEL_URN` - one of your models' URN
+- Run the server: `npm run start`
+
 ## Project #4 - viewer+server+oss
 ## Project #5 - viewer+server+oss+derivatives
 
