@@ -1,0 +1,82 @@
+<!--/////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Autodesk, Inc. All rights reserved
+// Written by Philippe Leefsma 2016 - ADN/Developer Technical Services
+//
+// Permission to use, copy, modify, and distribute this software in
+// object code form for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appears in all copies and
+// that both that copyright notice and the limited warranty and
+// restricted rights notice below appear in all supporting
+// documentation.
+//
+// AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS.
+// AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
+// DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
+// UNINTERRUPTED OR ERROR FREE.
+////////////////////////////////////////////////////////////////////////////////-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #viewer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="viewer"></div>
+  <script>
+    const token = '<Your access token>';
+    const urn = '<Your base64-encoded model URN>';
+    let viewer;
+
+    // Viewer initialization
+    const options = {
+      env: 'AutodeskProduction',
+      api: 'derivativeV2',  // for models uploaded to EMEA change this option to 'derivativeV2_EU'
+      getAccessToken: function (onTokenReady) {
+        const timeInSeconds = 3600;
+        onTokenReady(token, timeInSeconds);
+      }
+    };
+    Autodesk.Viewing.Initializer(options, function () {
+      viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('viewer'));
+      const res = viewer.start();
+      if (res > 0) {
+        console.error('Could not instantiate the viewer. Error code:', res);
+        return;
+      }
+      loadDocument(urn);
+    });
+
+    // Document loading
+    function loadDocument(urn) {
+      const documentId = 'urn:' + urn;
+      Autodesk.Viewing.Document.load(
+        documentId,
+        function onSuccess(doc) {
+          const defaultViewable = doc.getRoot().getDefaultGeometry();
+          viewer.loadDocumentNode(doc, defaultViewable);
+        },
+        function onError(err) {
+          console.error('Could not load document:', err);
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>

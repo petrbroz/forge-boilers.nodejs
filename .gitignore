@@ -1,3 +1,9 @@
+.vscode/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
 6 - viewer+server+data-mng+derivatives/push-to-prod.sh
 6 - viewer+server+data-mng+derivatives/node_modules
 6 - viewer+server+data-mng+derivatives/dist

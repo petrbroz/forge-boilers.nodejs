@@ -34,26 +34,32 @@ To run those samples, you need your own Forge API credentials:
     > git clone https://github.com/Autodesk-Forge/forge-boilers.nodejs
 
 
-## Boilers Setup
+## Boilerplate Samples
 
 Below are instructions to setup and run locally each boiler project, they may vary based on which project you want to run.
 
-## Project #2 - viewer-barebone
+### viewer-barebone
 
-Samples in this project do not require you to implement a server, but they rely on hardcoded token and URN in the JavaScript code, so they are for testing purpose only.
+This sample does not require you to implement a server, but it relies on hardcoded token and URN
+in the JavaScript code, so it's for testing purposes only.
 
- * You will need to generate a valid [2-legged OAuth token](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/) and upload a model to your account, which you can do using that website for now: [https://models.autodesk.io](https://models.autodesk.io)
+- You will need to generate a valid [2-legged OAuth token](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/)
+and upload a model to your account, which you can do using this website for now: [https://models.autodesk.io](https://models.autodesk.io)
+- Once you have the token and URN of your model, replace in the hardcoded fields in _viewer.html_:
 
- * Once you have a token and the URN of your model, replace in the hardcoded fields in <b>viewer.html</b> and <b>viewingApp.html</b>:
+```js
+const token = '<Your access token>';
+const urn = '<Your base64-encoded model URN>';
+```
 
-     var token = '<< Place your token here >>'
+- Navigate to the _viewer-barebone_ folder and start serving the HTML file with
+an HTTP server of your choice (we are using [http-server](https://www.npmjs.com/package/http-server)):
 
-     var urn = '<< Place your URN here >>'
-
- * You can open the files directly in browser or serve similar to project #1. The <b>viewer.html</b> is using the plain JavaScript viewer API,
- whereas <b>viewingApp.html</b> is using an extra layer of code from Autodesk which adds a UI to switch between viewables (for designs translated from Revit .rvt files), see screenshot below:
-
- ![Multiple Views](resources/img/Project2.png)
+```
+npm install -g http-server
+cd viewer-barebone
+http-server
+```
 
 ## Project #3 - viewer+server
 ## Project #4 - viewer+server+oss
